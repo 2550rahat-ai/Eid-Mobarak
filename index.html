@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রিমিয়াম ঈদের শুভেচ্ছা | Md. Rayhan Islam</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #050505;
+            --primary-gold: #D4AF37;
+            --gold-glow: #FFD700;
+            --text-color: #E0E0E0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --font-family: 'Hind Siliguri', sans-serif;
+            --transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden; 
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- BACKGROUND ANIMATION --- */
+        .ambient-background {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            z-index: -2;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.3;
+            animation: starsPulsate 10s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes starsPulsate {
+            0% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 0.4; transform: scale(1.05); }
+        }
+
+        /* --- MOBILE SCREEN SIMULATION --- */
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background: black;
+            border: 12px solid #222;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.5s ease;
+        }
+
+        @media (max-width: 500px) {
+            .phone-container {
+                width: 100vw; height: 100vh;
+                border: none; border-radius: 0;
+            }
+        }
+
+        /* --- LAYOUT & MAIN SECTIONS --- */
+        .app-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .step {
+            position: absolute;
+            width: 90%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .step.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .premium-text {
+            color: var(--primary-gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            font-weight: 600;
+        }
+
+        .big-wish {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* --- STEP 1: WELCOME --- */
+        .gift-box-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: var(--primary-gold);
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
+            animation: pulseBox 2s infinite;
+        }
+
+        @keyframes pulseBox {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(212, 175, 55, 1)); }
+        }
+
+        .surprise-text {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .glow-button {
+            background: none;
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            font-family: var(--font-family);
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .glow-button:hover, .glow-button:active {
+            background-color: var(--primary-gold);
+            color: #000;
+            box-shadow: 0 0 30px var(--gold-glow);
+            transform: scale(1.05);
+        }
+
+        /* --- STEP 2: CRESCENT --- */
+        .icon-3d {
+            font-size: 100px;
+            color: var(--primary-gold);
+            filter: drop-shadow(0 0 20px var(--gold-glow));
+            margin-bottom: 20px;
+        }
+
+        .typing-text {
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInText { to { opacity: 1; } }
+
+        /* --- STEP 3: BLESSINGS --- */
+        .lantern-icon {
+            font-size: 90px;
+            animation: flicker 3s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px var(--primary-gold)); }
+            50% { opacity: 0.8; filter: drop-shadow(0 0 10px var(--primary-gold)); }
+        }
+
+        .wish-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .blessing-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* --- STEP 4: FIREWORKS --- */
+        canvas#fireworks {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .final-wish { z-index: 2; }
+
+        /* --- WATERMARK --- */
+        .watermark {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.7rem;
+            color: rgba(224, 224, 224, 0.4);
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="eidMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="ambient-background"><div class="stars"></div></div>
+
+    <div class="phone-container" id="phoneBody">
+        <div class="app-content">
+
+            <div class="step active" id="step1">
+                <div class="gift-box-icon">🎁</div>
+                <p class="premium-text surprise-text">তোমার জন্য একটি সারপ্রাইজ!</p>
+                <button class="glow-button" onclick="startSurprise()">সারপ্রাইজটি খুলুন</button>
+            </div>
+
+            <div class="step" id="step2">
+                <div class="icon-3d">🌙✨</div>
+                <p class="premium-text big-wish typing-text">ঈদের চাঁদ উঠেছে আকাশে!</p>
+            </div>
+
+            <div class="step" id="step3">
+                <div class="lantern-icon">🪔</div>
+                <div class="wish-container">
+                    <p class="blessing-text">তোমার এবং তোমার পরিবারের সবার জীবন আনন্দে ভরে উঠুক।</p>
+                    <p class="premium-text big-wish">ঈদ মোবারক!</p>
+                </div>
+            </div>
+
+            <div class="step" id="step4">
+                <p class="premium-text big-wish final-wish">শুভ ঈদ-উল-ফিতর!</p>
+                <canvas id="fireworks"></canvas>
+            </div>
+
+            <div class="watermark">Crafted with ❤️ by Md. Rayhan Islam</div>
+        </div>
+    </div>
+
+    <script>
+        // --- MUSIC & START LOGIC ---
+        function startSurprise() {
+            // ১. মিউজিক চালু করা
+            let bgMusic = document.getElementById("eidMusic");
+            bgMusic.play().catch(error => {
+                console.log("ব্রাউজারের অটোপ্লে পলিসির কারণে মিউজিক প্লে হতে সমস্যা হয়েছে।");
+            });
+
+            // ২. ধাপ ২ এ যাওয়া
+            nextStep(2);
+        }
+
+        // --- STEP NAVIGATION LOGIC ---
+        function nextStep(stepNumber) {
+            document.querySelector('.step.active').classList.remove('active');
+            
+            setTimeout(() => {
+                const nextStepEl = document.getElementById(`step${stepNumber}`);
+                if (nextStepEl) {
+                    nextStepEl.classList.add('active');
+
+                    if (stepNumber === 2) {
+                        setTimeout(() => nextStep(3), 3500);
+                    } else if (stepNumber === 3) {
+                        setTimeout(() => nextStep(4), 5000);
+                    } else if (stepNumber === 4) {
+                        document.getElementById('phoneBody').style.boxShadow = '0 25px 80px -10px rgba(212, 175, 55, 0.6)';
+                        initFireworks();
+                    }
+                }
+            }, 300);
+        }
+
+        // --- GOLDEN FIREWORKS ANIMATION ---
+        function initFireworks() {
+            const canvas = document.getElementById('fireworks');
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+
+            const particles = [];
+            const goldTones = ['#D4AF37', '#FFD700', '#C0C0C0', '#FFF8DC'];
+
+            class Particle {
+                constructor(x, y, color) {
+                    this.x = x; this.y = y; this.color = color;
+                    this.radius = Math.random() * 2 + 1;
+                    this.velocity = { x: (Math.random() - 0.5) * 8, y: (Math.random() - 0.5) * 8 };
+                    this.life = 100; this.opacity = 1;
+                }
+                draw() {
+                    ctx.globalAlpha = this.opacity;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+                update() {
+                    this.velocity.y += 0.05; 
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+                    this.life -= 1;
+                    this.opacity = this.life / 100;
+                }
+            }
+
+            function createFirework(x, y) {
+                const color = goldTones[Math.floor(Math.random() * goldTones.length)];
+                for (let i = 0; i < 50; i++) particles.push(new Particle(x, y, color));
+            }
+
+            function animate() {
+                if (document.getElementById('step4').classList.contains('active')) {
+                    requestAnimationFrame(animate);
+                }
+                ctx.globalAlpha = 0.1;
+                ctx.fillStyle = '#050505';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach((particle, index) => {
+                    if (particle.life > 0) {
+                        particle.update(); particle.draw();
+                    } else {
+                        particles.splice(index, 1);
+                    }
+                });
+
+                if (Math.random() < 0.05) {
+                    createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.7);
+                }
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>
