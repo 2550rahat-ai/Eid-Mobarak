@@ -274,13 +274,15 @@
     <script>
         // --- MUSIC & START LOGIC ---
         function startSurprise() {
-            // ১. মিউজিক চালু করা
             let bgMusic = document.getElementById("eidMusic");
-            bgMusic.play().catch(error => {
-                console.log("ব্রাউজারের অটোপ্লে পলিসির কারণে মিউজিক প্লে হতে সমস্যা হয়েছে।");
+            
+            // GitHub-এ আপলোড করা মিউজিকটি বাজানো শুরু করবে
+            bgMusic.play().then(() => {
+                console.log("GitHub মিউজিক সফলভাবে বাজছে...");
+            }).catch(error => {
+                console.log("মিউজিক প্লে হতে বাধা পেয়েছে। নিশ্চিত করুন music.mp3 একই ফোল্ডারে আছে।", error);
             });
 
-            // ২. ধাপ ২ এ যাওয়া
             nextStep(2);
         }
 
@@ -341,14 +343,14 @@
 
             function createFirework(x, y) {
                 const color = goldTones[Math.floor(Math.random() * goldTones.length)];
-                for (let i = 0; i < 50; i++) particles.push(new Particle(x, y, color));
+                for (let i = 0; i < 60; i++) particles.push(new Particle(x, y, color));
             }
 
             function animate() {
                 if (document.getElementById('step4').classList.contains('active')) {
                     requestAnimationFrame(animate);
                 }
-                ctx.globalAlpha = 0.1;
+                ctx.globalAlpha = 0.12;
                 ctx.fillStyle = '#050505';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -360,7 +362,7 @@
                     }
                 });
 
-                if (Math.random() < 0.05) {
+                if (Math.random() < 0.06) {
                     createFirework(Math.random() * canvas.width, Math.random() * canvas.height * 0.7);
                 }
             }
